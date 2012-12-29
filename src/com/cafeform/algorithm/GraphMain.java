@@ -1,8 +1,5 @@
 package com.cafeform.algorithm;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author kaizawa
