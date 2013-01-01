@@ -9,10 +9,12 @@ import java.util.List;
 public class SearchResult {
     List<Node> path;
     private final String algorithmName;
+    private Integer time;
     
-    public SearchResult(List<Node> path, String algorithmName){
+    public SearchResult(List<Node> path, String algorithmName, Integer time){
         this.path = path;
         this.algorithmName = algorithmName;
+        this.time = time;
     }
     
     public Integer getCost(){
@@ -31,8 +33,10 @@ public class SearchResult {
     void showResults() {
         StringBuilder outStr = new StringBuilder();
 
-        outStr.append(algorithmName);
-        outStr.append(" Cost:[").append(getCost()).append("] \t");
+        outStr.append(algorithmName).append("\t");
+        outStr.append("Distance:[").append(path.size()).append("],");
+        outStr.append("Time:[").append(time).append("],");        
+        outStr.append("Cost:[").append(getCost()).append("]\t");
         boolean firstNode = true;
         
         for(Node node : path){
