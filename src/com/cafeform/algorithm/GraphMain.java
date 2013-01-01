@@ -60,7 +60,7 @@ public class GraphMain {
             }
         }
         
-        System.out.println("E(Nunber of branches in edge)" + edgeCount);
+        System.out.println("E(Nunber of edges in edge)" + edgeCount);
         System.out.println("V+E: " + (nodeList.size() + edgeCount));
     }
 }
