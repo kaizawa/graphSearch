@@ -1,5 +1,10 @@
 package com.cafeform.algorithm;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 /**
  *
  * @author kaizawa
@@ -17,6 +22,7 @@ public class GraphMain {
     private static Node[] nodeArray = new Node[nodeNameArray.length];
     private static Node startNode;
     private static Node goalNode;
+    private static List nodeList;
 
     public static void main(String[] args) {
         new GraphMain().start();
@@ -24,7 +30,8 @@ public class GraphMain {
     
     private void start(){
         createGraph();        
-        new BreadthFirstSearch(startNode, goalNode).doSearch().showResults();
+        new BreadthFirstSearch(nodeList, startNode, goalNode).doSearch().showResults();
+        new BreadthFirstSearch2(nodeList, startNode, goalNode).doSearch().showResults();        
     }
 
     private void createGraph() {
@@ -41,6 +48,7 @@ public class GraphMain {
                 }
                nodeArray[i].addChild(nodeArray[child], nodeChildrenCostArray[i][j]);
             }
-        }        
+        }  
+        nodeList = Arrays.asList(nodeArray);
     }
 }

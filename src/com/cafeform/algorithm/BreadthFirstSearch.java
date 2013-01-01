@@ -12,8 +12,8 @@ class BreadthFirstSearch extends SearchAlgorithm {
     Set<Node> foundNodeSet = new HashSet<>(); // Found, but has not children search 
     List<Node> shortestPath = Collections.emptyList();
 
-    public BreadthFirstSearch(Node startNode, Node goalNode) {
-        super(startNode, goalNode);
+    public BreadthFirstSearch(List<Node> nodeList, Node startNode, Node goalNode) {
+        super(nodeList, startNode, goalNode);
     }
 
     @Override

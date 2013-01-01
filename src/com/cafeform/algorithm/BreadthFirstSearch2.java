@@ -2,6 +2,7 @@ package com.cafeform.algorithm;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.LinkedBlockingDeque;
 
@@ -20,8 +21,8 @@ class BreadthFirstSearch2 extends SearchAlgorithm {
     
     enum Color {BLACK, WHITE, GRAY};
 
-    public BreadthFirstSearch2(Node startNode, Node goalNode) {
-        super(startNode, goalNode);
+    public BreadthFirstSearch2(List<Node> nodeList, Node startNode, Node goalNode) {
+        super(nodeList, startNode, goalNode);
     }
     
     @Override
