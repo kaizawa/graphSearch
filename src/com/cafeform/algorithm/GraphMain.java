@@ -51,7 +51,7 @@ public class GraphMain {
             }
         }  
         nodeList = Arrays.asList(nodeArray);
-        System.out.println("V(Number of nodes in graph): " + nodeList.size());
+        System.out.println("V(vertices): " + nodeList.size());
         
         int edgeCount = 0;
         for(Integer[] nodes: nodeChildrenArray){
@@ -60,7 +60,7 @@ public class GraphMain {
             }
         }
         
-        System.out.println("E(Nunber of edges in edge)" + edgeCount);
+        System.out.println("E(edges)" + edgeCount);
         System.out.println("V+E: " + (nodeList.size() + edgeCount));
     }
 }
