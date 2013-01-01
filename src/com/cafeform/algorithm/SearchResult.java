@@ -8,9 +8,11 @@ import java.util.List;
  */
 public class SearchResult {
     List<Node> path;
+    private final String algorithmName;
     
-    public SearchResult(List<Node> path){
+    public SearchResult(List<Node> path, String algorithmName){
         this.path = path;
+        this.algorithmName = algorithmName;
     }
     
     public Integer getCost(){
@@ -29,7 +31,8 @@ public class SearchResult {
     void showResults() {
         StringBuilder outStr = new StringBuilder();
 
-        outStr.append("Cost:[").append(getCost()).append("] ");
+        outStr.append(algorithmName);
+        outStr.append(" Cost:[").append(getCost()).append("] \t");
         boolean firstNode = true;
         
         for(Node node : path){
@@ -42,5 +45,5 @@ public class SearchResult {
                     .append("]");
         }
         System.out.println(outStr);
-    }
+    }    
 }
