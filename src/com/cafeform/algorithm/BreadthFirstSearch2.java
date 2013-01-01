@@ -1,9 +1,6 @@
 package com.cafeform.algorithm;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.LinkedBlockingDeque;
 
 /**
@@ -16,11 +13,9 @@ import java.util.concurrent.LinkedBlockingDeque;
  */
 class BreadthFirstSearch2 extends SearchAlgorithm {
     LinkedBlockingDeque<Node> foundNodeQueue = new LinkedBlockingDeque<>();
-    HashMap<Node, Color> colorMap = new HashMap<>();
+    HashSet<Node> foundNodeSet = new HashSet<>();
     HashMap<Node, Node> predeccessorMap = new HashMap(); 
     
-    enum Color {BLACK, WHITE, GRAY};
-
     public BreadthFirstSearch2(List<Node> nodeList, Node startNode, Node goalNode) {
         super(nodeList, startNode, goalNode);
     }
@@ -37,8 +32,9 @@ class BreadthFirstSearch2 extends SearchAlgorithm {
                 break;
             } else {
                 for (Node child : (Set<Node>) currentNode.getChildrenMap().keySet()) {
+                    time.incrementAndGet();
                     //Check if it has already been found
-                    if(colorMap.containsKey(child)){
+                    if(foundNodeSet.contains(child)){
                         // This node has ever been found.
                         continue;
                     }
@@ -48,18 +44,21 @@ class BreadthFirstSearch2 extends SearchAlgorithm {
                     // Set currentNode as parent of child node
                     predeccessorMap.put(child, currentNode);
                     // Set color of child node to GRAY
-                    colorMap.put(child, Color.GRAY);
+                    foundNodeSet.add(child);
                 }
             }
         } 
 
+        // Return path which found first        
+        return new SearchResult(getShortstPathFromGloal(), "BreadthFirstSearch2", time.get());
+    }
+    
+    public List<Node> getShortstPathFromGloal(){
         ArrayList<Node> shortestPath = new ArrayList<>();
         
         for(Node node = goalNode; null != node; node = predeccessorMap.get(node)){
             shortestPath.add(0, node);
-        }
-        
-        // Return path which found first        
-        return new SearchResult(shortestPath, "BreadthFirstSearch2");
-    }
+        }        
+        return shortestPath;
+    }    
 }
