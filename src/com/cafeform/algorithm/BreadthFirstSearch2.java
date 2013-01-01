@@ -26,6 +26,7 @@ class BreadthFirstSearch2 extends SearchAlgorithm {
         foundNodeQueue.add(startNode);
             
         while(false == foundNodeQueue.isEmpty()){
+            time.incrementAndGet();            
             Node currentNode = foundNodeQueue.poll();
 
             if (currentNode == goalNode) {

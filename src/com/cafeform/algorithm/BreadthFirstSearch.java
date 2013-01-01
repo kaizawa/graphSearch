@@ -5,7 +5,6 @@ import java.util.concurrent.LinkedBlockingDeque;
 
 /**
  * Implementation of breadth first search algorithm.
- * This may not be good implementation.
  * 
  * @author kaizawa
  */
@@ -27,6 +26,7 @@ class BreadthFirstSearch extends SearchAlgorithm {
         foundNodeQueue.add(currentPath);
 
         while(false == foundNodeQueue.isEmpty()){
+            time.incrementAndGet();            
             currentPath = foundNodeQueue.poll();            
             Node currentNode = currentPath.getLast();
 

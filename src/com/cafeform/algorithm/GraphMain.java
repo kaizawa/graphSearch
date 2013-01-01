@@ -51,5 +51,16 @@ public class GraphMain {
             }
         }  
         nodeList = Arrays.asList(nodeArray);
+        System.out.println("V(Number of nodes in graph): " + nodeList.size());
+        
+        int edgeCount = 0;
+        for(Integer[] nodes: nodeChildrenArray){
+            for(Integer edge: nodes){
+                edgeCount++;
+            }
+        }
+        
+        System.out.println("E(Nunber of branches in edge)" + edgeCount);
+        System.out.println("V+E: " + (nodeList.size() + edgeCount));
     }
 }
