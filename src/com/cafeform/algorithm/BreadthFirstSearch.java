@@ -1,9 +1,6 @@
 package com.cafeform.algorithm;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.LinkedBlockingDeque;
 
 /**
@@ -50,7 +47,8 @@ class BreadthFirstSearch extends SearchAlgorithm {
             }
             currentPath = foundNodeQueue.poll();
         } 
-        // Return path which found first
-        return new SearchResult(goaledPathList.get(0));
+        // Return path which found first        
+        List<Node> firstPath = goaledPathList.isEmpty() ? Collections.emptyList() : goaledPathList.get(0);
+        return new SearchResult(firstPath);
     }
 }
