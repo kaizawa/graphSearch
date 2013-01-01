@@ -7,14 +7,13 @@ import java.util.concurrent.LinkedBlockingDeque;
  * @author kaizawa
  */
 class BreadthFirstSearch extends SearchAlgorithm {
-
+   
     LinkedBlockingDeque<ArrayList> foundNodeQueue = new LinkedBlockingDeque<>();
-    List<ArrayList> goaledPathList = new ArrayList<>();
     Set<Node> foundNodeSet = new HashSet<>(); // Found, but has not children search 
+    List<Node> shortestPath = Collections.emptyList();
 
     public BreadthFirstSearch(Node startNode, Node goalNode) {
-        this.startNode = startNode;
-        this.goalNode = goalNode;
+        super(startNode, goalNode);
     }
 
     @Override
@@ -29,7 +28,8 @@ class BreadthFirstSearch extends SearchAlgorithm {
             Node currentNode = currentPath.get(currentPath.size()-1);
 
             if (currentNode == goalNode) {
-                goaledPathList.add(currentPath);
+                shortestPath = currentPath;
+                break;
             } else {
                 for (Node child : (Set<Node>) currentNode.getChildrenMap().keySet()) {
                     //Check if it has already been found
@@ -48,7 +48,6 @@ class BreadthFirstSearch extends SearchAlgorithm {
             currentPath = foundNodeQueue.poll();
         } 
         // Return path which found first        
-        List<Node> firstPath = goaledPathList.isEmpty() ? Collections.emptyList() : goaledPathList.get(0);
-        return new SearchResult(firstPath);
-    }
+        return new SearchResult(shortestPath, "BreadthFirstSearch");
+    }    
 }
