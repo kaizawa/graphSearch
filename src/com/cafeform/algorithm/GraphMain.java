@@ -32,6 +32,7 @@ public class GraphMain {
         createGraph();        
         new BreadthFirstSearch(nodeList, startNode, goalNode).doSearch().showResults();
         new BreadthFirstSearch2(nodeList, startNode, goalNode).doSearch().showResults();        
+        new DepthFirstSearch(nodeList, startNode, goalNode).doSearch().showResults();                
     }
 
     private void createGraph() {
