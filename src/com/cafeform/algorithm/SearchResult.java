@@ -22,9 +22,10 @@ public class SearchResult {
         Node prevNode = null;
         for(Node node : path){
             if(null == prevNode ){
+                prevNode = node;                
                 continue;
             }
-            cost += (Integer)prevNode.getChildrenMap().get(node);
+            cost += (Integer)prevNode.getChildrenCostMap().get(node);
             prevNode = node;
         }
         return cost;

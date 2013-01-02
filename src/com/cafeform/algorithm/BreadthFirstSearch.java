@@ -34,7 +34,7 @@ class BreadthFirstSearch extends SearchAlgorithm {
                 shortestPath = currentPath;
                 break;
             } else {
-                for (Node child : (Set<Node>) currentNode.getChildrenMap().keySet()) {
+                for (Node child : (Set<Node>) currentNode.getChildrenCostMap().keySet()) {
                     time.incrementAndGet();
                     //Check if it has already been found
                     if (foundNodeSet.contains(child)) {

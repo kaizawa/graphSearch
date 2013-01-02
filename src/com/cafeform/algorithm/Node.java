@@ -9,7 +9,7 @@ import java.util.Map;
  */
 public class Node<V> {
     /* Node and Cost pare */
-    private Map<Node, Integer> childrenMap = new HashMap<>();
+    private Map<Node, Integer> childrenCostMap = new HashMap<>();
     private V value;
     private final String name;
     private final Integer heuristic;
@@ -31,12 +31,12 @@ public class Node<V> {
         this.heuristic = heuristic;
     }
     
-    public Map<Node, Integer> getChildrenMap(){
-        return childrenMap;
+    public Map<Node, Integer> getChildrenCostMap(){
+        return childrenCostMap;
     }
     
     public void addChild(Node childNode, Integer cost){
-        childrenMap.put(childNode, cost);
+        childrenCostMap.put(childNode, cost);
     }      
     
     @Override
@@ -44,13 +44,13 @@ public class Node<V> {
         StringBuilder str = new StringBuilder();
         str.append(name).append("[Heuristic:").append(heuristic).append(",Children:");
         boolean isFirstChild = true;
-        for(Node child : childrenMap.keySet()){
+        for(Node child : childrenCostMap.keySet()){
             if(isFirstChild){
                 isFirstChild = false;
             } else {
                 str.append(",");
             }
-            str.append(child.getName()).append("(").append(childrenMap.get(child)).append(")");
+            str.append(child.getName()).append("(").append(childrenCostMap.get(child)).append(")");
         }
         str.append("]");
         

@@ -22,7 +22,7 @@ public class GraphMain {
     private static Node[] nodeArray = new Node[nodeNameArray.length];
     private static Node startNode;
     private static Node goalNode;
-    private static List nodeList;
+    private static List<Node> nodeList;
 
     public static void main(String[] args) {
         new GraphMain().start();

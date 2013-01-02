@@ -31,7 +31,7 @@ public class DepthFirstSearch extends SearchAlgorithm {
             return;
         }        
         // Check childlen
-        for(Node child: (Set<Node>) node.getChildrenMap().keySet()){
+        for(Node child: (Set<Node>) node.getChildrenCostMap().keySet()){
             time.incrementAndGet();            
             if(foundNodeSet.contains(child)){
                 continue;
