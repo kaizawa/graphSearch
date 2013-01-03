@@ -1,6 +1,7 @@
 package com.cafeform.algorithm;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -9,7 +10,7 @@ import java.util.Map;
  */
 public class Node<V> {
     /* Node and Cost pare */
-    private Map<Node, Integer> childrenCostMap = new HashMap<>();
+    private Map<Node, Integer> childrenCostMap = new LinkedHashMap<>();
     private V value;
     private final String name;
     private final Integer heuristic;
