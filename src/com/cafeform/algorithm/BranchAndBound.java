@@ -46,7 +46,6 @@ public class BranchAndBound extends SearchAlgorithm {
         while(false == lowestCostFirstNodeQueue.isEmpty()){
             time.incrementAndGet();
             Node currentNode = lowestCostFirstNodeQueue.poll();
-            System.out.println("Cost:" + nodeCostMap.get(currentNode) + " " + currentNode);
             /**
              * Found goal.
              */
@@ -83,7 +82,7 @@ public class BranchAndBound extends SearchAlgorithm {
             }
             foundNodeSet.add(currentNode);
         }
-        return new SearchResult(getShortstPathFromGloal(), "BranchANdBound", time.get());
+        return new SearchResult(getShortstPathFromGloal(), "BranchANdBound  ", time.get());
     }
         
     public List<Node> getShortstPathFromGloal(){
