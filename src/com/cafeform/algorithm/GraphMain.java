@@ -33,6 +33,7 @@ public class GraphMain {
         new BreadthFirstSearch(nodeList, startNode, goalNode).doSearch().showResults();
         new BreadthFirstSearch2(nodeList, startNode, goalNode).doSearch().showResults();        
         new DepthFirstSearch(nodeList, startNode, goalNode).doSearch().showResults();                
+        new BranchAndBound(nodeList, startNode, goalNode).doSearch().showResults();                        
     }
 
     private void createGraph() {
@@ -59,7 +60,11 @@ public class GraphMain {
                 edgeCount++;
             }
         }
-        
+        /*        
+        for(Node node : nodeList){
+            System.out.println(node);
+        }
+        */      
         System.out.println("E(edges)" + edgeCount);
         System.out.println("V+E: " + (nodeList.size() + edgeCount));
     }
